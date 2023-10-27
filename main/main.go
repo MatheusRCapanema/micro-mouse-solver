@@ -1,4 +1,4 @@
-package cmd
+package main
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ func main() {
 	// - 'mazeID' é uma string constante representando o ID do labirinto.
 	// - 'labirintoName' é uma string constante representando o nome do labirinto.
 	const mazeID = "exampleID"
-	const labirintoName = "sample-maze"
+	const labirintoName = "maze-sample"
 
 	// 1. Iniciar o labirinto
 	client := api.NewClient()
@@ -33,7 +33,7 @@ func main() {
 
 	// 3. Resolver o labirinto usando BFS
 	// Suponho que sua função BFS agora só precisa da posição inicial e do próprio labirinto
-	path := solvers.BFS(client, mazeID, labirintoName, start)
+	path := solvers.DFSStart(client, mazeID, labirintoName, start, respStart)
 
 	// 4. Movimentar-se pelo labirinto usando o caminho encontrado
 	for _, move := range path {
